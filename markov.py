@@ -52,6 +52,10 @@ def make_chains(text_string):
         #if dict empty, returns None and else statement initiated
         # if the key exists, returns the value
         # key = (words[i], words[i +1])
+        
+        ##checks to see if key already has a value
+        ##if so, add value
+        ## Else, add key and value to list
         if chains.get((words[i], words[i + 1])):
             #there is a key that exist, its value is returned; append value to key
             chains.get((words[i], words[i + 1])).append(words[i + 2])
