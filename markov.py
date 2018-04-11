@@ -41,22 +41,28 @@ def make_chains(text_string):
         [None]
     """
     words = input_text.split()
+    print words
+    #creates dictionary
     chains = {}
-    new_chains = {}
+  
 
-    # your code goes here
+    #iterates over str(words)
     for i in range(len(words)-2):
-        chains[words[i], words[i + 1]] = [(words[i + 2])]
+        # chains.get(key) returns value or None 
+        #if dict empty, returns None and else statement initiated
+        # if the key exists, returns the value
+        # key = (words[i], words[i +1])
+        if chains.get((words[i], words[i + 1])):
+            #there is a key that exist, its value is returned; append value to key
+            chains.get((words[i], words[i + 1])).append(words[i + 2])
 
-    for key, value in chains.items():
-        if value not in new_chains.values():
-            new_chains[key] = value
+        # if dict is empty or key not exist, create the key=value     
+        else:
+            chains[(words[i], words[i + 1])] = [words[i + 2]]
 
+        #rememberd: chains.get(key) returns value, and holds type; value is list for this function 
 
-
-
-    print new_chains
-    print chains
+   
     return chains
 
 
